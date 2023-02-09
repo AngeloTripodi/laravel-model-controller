@@ -18,22 +18,23 @@
 <body>
 
 
-    <main class="bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
+    <main>
+        <div class="container my-5">
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4 mb-5">
 
-                    <div>
-                        @foreach ($movies as $movie)
-                            <h1>{{ $movie->title }}</h1>
-                            <h4>{{ $movie->original_title }}</h4>
-                            <h6>{{ $movie->nationality }}</h6>
-                            <p>{{ $movie->date }}</p>
-                            <p>{{ $movie->vote }}</p>
-                        @endforeach
+                @foreach ($movies as $movie)
+                    <div class="col">
+                        <div class="card text-bg-dark mb-3 h-100 text-center" style="max-width: 18rem;">
+                            <div class="card-header">{{ $movie->date }} || Vote: {{ $movie->vote }} </div>
+                            <div class="card-body">
+                                <h2 class="card-title">{{ $movie->title }}</h2>
+                                <h5>{{ $movie->original_title }}</h5>
+                                <p class="card-text">{{ $movie->nationality }}</p>
+                            </div>
+                        </div>
                     </div>
+                @endforeach
 
-                </div>
             </div>
         </div>
 
